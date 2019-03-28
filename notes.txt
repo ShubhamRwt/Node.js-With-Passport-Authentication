@@ -1,0 +1,9 @@
+$ npm install express bcryptjs passport passport-local ejs express-ejs-layouts mongoose connect-flash express-session
+
+ejs : for layout
+connect-flash : for flash messages
+bcryptjs : for saving passwords in an encrypted form
+
+$ npm install -D nodemon    // -D for developer dependency
+
+partials folder in views : partials is a piece of markup html or whatever that we need to put inside another template file.
