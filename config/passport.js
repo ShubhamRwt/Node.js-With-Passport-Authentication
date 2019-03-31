@@ -5,8 +5,6 @@ const bcrypt = require('bcryptjs');
 // Load User Model
 const User = require('../models/User');
 
-
-
 module.exports = function(passport){    // we will pass this passport from app.js file
     passport.use(
         new LocalStrategy({usernameField: 'email'}, (email, password, done) => {
@@ -41,10 +39,12 @@ module.exports = function(passport){    // we will pass this passport from app.j
     In order to support login sessions, Passport will serialize and deserialize user instances to and from the session.
      */
 
+    // runs once, when user is put in hashmap with value is userid
     passport.serializeUser((user, done) => {
         done(null, user.id);
     });
 
+    // used to retrieve user from userid, happens everytime request happens
     passport.deserializeUser((id, done) => {
         User.findById(id, (err, user) => {
             done(err, user);

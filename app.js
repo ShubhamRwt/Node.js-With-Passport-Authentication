@@ -32,8 +32,8 @@ app.use(
 );
 
 // Passport Middleware : put after sessions
-app.use(passport.initialize());
-app.use(passport.session());
+app.use(passport.initialize()); // passport.authenticate should run this will put passport as middleware
+app.use(passport.session());    // tells that session is available and will use it
 
 // Connect Flash
 app.use(flash());
